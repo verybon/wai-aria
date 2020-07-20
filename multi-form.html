@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> multi form </title>
+</head>
+<body>
+    <!-- 
+    *  HTML의 기본 요소(<fieldset>과 <legend>)를 사용하는 것이 항상 우선이다. WAI-ARIA의
+적용은 이것이 불가할 경우에 대한 차선책으로 선택할 수 있는 보조 기술이다.
+    <fieldset>
+        <div class="control-group space-top-3 space-1">
+            <legend><strong>생일</strong></legend>
+            <strong><i class="icon icon-question"></i></strong>
+        </div>
+        <div class="control-group row row-condensed space-2">
+            <div class="col-sm-5">
+                <div class="select va-container-h">
+                    <select name="user[birthday_month]" id="user_birthday_month">
+                        <option value="">월</option>
+                        <option value="1">1월</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="select va-container-h">
+                    <select name="user[birthday_day]" id="user_birthday_day">
+                        <option value="">일</option>
+                        <option value="1">1</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="select va-container-h">
+                    <select name="user[birrthday_year]" id="user_birthday_year">
+                        <option value="">년</option>
+                        <option value="2020">2020</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </fieldset> -->
+
+    <span id="order-info" class="form-legend">주문자 정보</span>
+    <div class="field" role="group" aria-labelledby="order-info">
+        <div class="field-item">
+            <label for="usr-name" class="label">이름</label>
+            <input type="text" name="usr-name" id="usr-name" />
+        </div>
+        <div class="field-item" role="group" aria-labelledby="label-tel">
+            <span class="label" id="label-tel">전화번호</span>
+            <input type="text" name="usr-tel-1" id="usr-tel-1" aria-label="국번" /> -
+            <input type="text" name="usr-tel-2" id="usr-tel-2" aria-label="가운데 자리" /> -
+            <input type="text" name="usr-tel-3" id="usr-tel-3" aria-label="마지막 자리" />
+        </div>
+        <div class="field-item">
+            <label for="usr-email">이메일</label>
+            <input type="text" name="usr-email" id="usr-email" />
+        </div>
+    </div>
+    <span id="delivery-info" class="form-legend">배송지 정보</span>
+    <div class="field" role="group" aaria-labelledby="delivery-info">
+        <div class="field-item">
+            <label for="deliver-name" class="label">이름</label>
+            <input type="text" name="deliver-name" id="deliver-name" />
+        </div>
+        <div class="field-item" role="group" aria-labelledby="label-tel2">
+            <span class="label" id="label-tel2">전화번호</span>
+            <input type="text"  name="deliver-tel-1" id="deliver-tel-1" aria-label="국번" /> -
+            <input type="text"  name="deliver-tel-2" id="deliver-tel-2" aria-label="가운데 자리" /> -
+            <input type="text"  name="deliver-tel-3" id="deliver-tel-3" aria-label="마지막 자리" />
+        </div>
+        <div class="field-item" role="group" aria-labelledby="label-addr">
+            <span class="label" id="label-addr">배송지 주소</span>
+            <input type="text" name="deliver-post" id="deliver-post" aria-label="우편번호" />
+            <input type="text" name="deliver-addr" id="deliver-addr" aria-label="상세주소" />
+        </div>
+    </div>
+</body>
+</html>
