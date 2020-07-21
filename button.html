@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> button </title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+		$( document ).ready(function(){
+			$( '#div-btn' ).click(function(){
+				alert( '이것은 버튼입니다.' );
+			});
+			$( '#div-btn' ).keyup(function(e){
+				if( e.keyCode == 32 ){
+					alert( '스페이스바를 눌렀군요!' );
+				}
+				if( e.keyCode == 13 ){
+					alert( '엔터키를 툴렀군요!' );
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<!--div버튼의 경우 : tabindex 속성을 사용하여 탭키로 이동이 가능하게 하고, WAI-ARIA의 role=“button”을 삽입하여 스크린리더에서 버튼임을 인식하게 한다. 이때 스크린리더로 듣게 되면, “button, print page”로 읽어주기
+때문에 페이지를 인쇄하기 위한 버튼임을 인지할 수 있다 -->
+	<div class="button" id="div-btn" role="button" tabindex="0">DIV 버튼</div>
+
+	<!-- 토글 버튼 :  WAI-ARIA의 aria-pressed 속성을 사용하여 현재 상태를 스크린리더에게 알려주어
+야 하는데 눌려졌을 때는 true, 눌려지지 않았을 때는 false로 동적으로 변경되어야 한다 -->
+	<div class="button" id="language" tabindex="0" role="button" aria-pressed="true">Korean</div>
+   
+	<!-- 토글버튼 그룹화 -->
+	<h2 id="language">언어선택</h2>
+	<div role="group" aria-labelledby="language">
+		<div class="tgbutton" id="div-btn1" role="button" tabindex="0" aria-pressed="true">Korean</div>
+		<div class="tgbutton" id="div-btn2" role="button" tabindex="0" aria-pressed="false">English</div>
+	</div>
+</body>
+</html>
