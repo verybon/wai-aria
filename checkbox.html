@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> checkbox </title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        $( document ).ready(function(){
+            // checkbox 속성을 갖고있는 <li요소를 클릭할 때
+            $( 'li[role=checkbox]' ).click(function(){
+                // aria-checked 속성이 true이면 false로 변경
+                if( $( this ).attr( 'aria-checked' ) === 'true' ){
+                    $( this ).attr( 'aria-checked', 'false' );
+                } else {
+                    $( this ).attr( 'aria-checked', 'true' );
+                }
+            });
+
+            // id가 #allCheck인 요소를 클릭하면
+            $( '#allCheck' ).click(function(){
+                // 한 개라도 aria-checked 속성과 true값을 갖고 있다면
+                if( $( this ).attr( 'aria-checked' ) === 'true' ){
+                    // checkbox 속성을 갖고 있는 <li> 요소의 aria-checked 속성은 true로 변경
+                    $( 'li[role=checkbox]' ).attr( 'aria-checked', 'true' );
+                } else {
+                    //그렇지 않으면 checkbox 속성을 갖고 있는 <li> 요소의
+                    // aria-checked 속성은 false로 변경
+                    $( 'li[role=checkbox]' ).attr( 'aria-checked', 'false' );
+                }
+            });
+
+            // 위와 동일한 이벤트 핸들러이며 스페이스바 동작을 위해 추가
+            $( 'li[role=checkbox]').keydown(function(e){
+                //스페이스바 키 32
+                if( e.keyCode == '32' ){
+                    if( $( this ).attr( 'aria-checked' ) === 'true' ){
+                        $( this ).attr( 'aria-checked', 'false' );
+                    } else {
+                        $( this ).attr( 'aria-checked', 'true' );
+                    }
+                }
+            });
+
+            // allCheck인 경우에도 동일하게 스페이스바가 동작되도록 추가
+            $( '#allCheck' ).keydown(function(e){
+                if( e.keyCode == '32' ){
+                    $( 'li[role=checkbox]' ).attr( 'aria-checked', 'true' );
+                } else {
+                    $( 'li[role=checkbox]' ).attr( 'aria-checked', 'false' );
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2 id="h1aria">ARIA Team</h2>
+    <ul aria-labelledby="h1aria" class="checkboxes" role="group">
+    <li class="checkbox" id="allCheck" aria-checked="false" role="checkbox" tabindex="0"><span>all</span></li>
+    <li class="checkbox" id="cb1a" aria-checked="false" role="checkbox" tabindex="0"><span>HJK</span></li>
+    <li class="checkbox" id="cb1b" aria-checked="false" role="checkbox" tabindex="0"><span>KDRS</span></li>
+    <li class="checkbox" id="cb1c" aria-checked="false" role="checkbox" tabindex="0"><span>SYH</span></li>
+    <li class="checkbox" id="cb1d" aria-checked="false" role="checkbox" tabindex="0"><span>YAM</span></li>
+    <li class="checkbox" id="cb1e" aria-checked="false" role="checkbox" tabindex="0"><span>JSB</span></li>
+    <li class="checkbox" id="cb1f" aria-checked="false" role="checkbox" tabindex="0"><span>KBJ</span></li>
+    </ul>
+</body>
+</html>
