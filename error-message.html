@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> button </title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+            $( '.btn' ).click(function(){
+                testInput();
+                $( '#fname' ).on( 'keydown', function(){
+                    testInput();
+                });
+            });
+        });
+        function  testInput(){
+            var val = $( '#fname' ).val();
+            if( val === '' ){
+                // 아무것도 입력하지 않을 때 에러 발생
+                $( '.error' ).html( '성을 입력하여 주세요.' );
+                $( '#fname' ).attr({
+                    // aria-invalid 속성과 true 값을 삽입
+                    'aria-invalid': true,
+                    // 에러 문구와 폼을 aria-describedby속성과 id로 연결
+                    'aria-describedby': 'error-text'
+                });
+                $( '#fname' ).focus();
+            } else {
+                if( (/[a-zA-Z]+$/).test( val ) ){
+                    // 에러가 발생하지 않으면 aria-invalid와 aria-describedby 속성 삭제
+                    $( '#fname' ).removeAttr( 'aria-invalid' );
+                    $( '#fname' ).removeAttr( 'aria-describedby' );
+                    $( 'error' ).html( '' );
+                } else {
+                    // 영문 이외를 입력할 때 에러 발생시킴
+                    $( '.error' ).html( '영문으로 입력하여 주세요.' );
+                    // aria-invalid 속성과 true 값을 삽입
+                    // 에러 문구와 폼을 aria-describedby속성과 id로 연결
+                    $( '#fname' ).attr({
+                        'aria-invalid': true,
+                        'aria-describedby': 'error-text'
+                    });
+                    $( '#fname' ).focus();
+                }
+            }
+        }
+	</script>
+</head>
+<body>
+    <!-- 폼과 연결된 에러 -->
+	<div>
+        <label for="fname">
+            성 
+            <span aria-hidden="true">*</span>
+            <span class="offscreen">필수입력항목</span>
+        </label>
+        <input type="text" id="fname" aria-invalid="true" aria-describedby="error-text" />
+        <div class="error" id="error-text"></div>
+    </div>
+    <button class="btn">confirm</button>
+    <!-- 폼과 연결되지 않는 에러 -->
+    <div class="error" id="error-text" role="alert" aria-live="assertive">
+        <span></span>
+    </div>
+    <button class="btn">Confirm</button>
+</body>
+</html>
