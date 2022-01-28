@@ -34,13 +34,14 @@
 				_tablist.forEach(function(obj, index){
 					obj.addEventListener("click", function(e){
 						fn_tablist_init()
-						//obj.setAttribute("aria-selected", "false");
-						obj.setAttribute("aria-selected", "true");
+						this.classList.add("on");
+						this.setAttribute("aria-selected", "true");
 					});
 				});
 				function fn_tablist_init(){
 					const nodes = document.querySelectorAll("[role=tab]");
 					for(let i = -1, node = null; node = nodes[++i];){
+						node.classList.remove("on");
 						node.setAttribute("aria-selected", "false");
 						//node.removeAttribute("aria-hidden");
 					}
