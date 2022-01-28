@@ -41,8 +41,8 @@
 				function fn_tablist_init(){
 					const nodes = document.querySelectorAll("[role=tab]");
 					for(let i = -1, node = null; node = nodes[++i];){
-						// `aria-hidden="true"`, `inert` 속성 제거
 						node.setAttribute("aria-selected", "false");
+						//node.removeAttribute("aria-hidden");
 					}
 				}
 			}, false);
