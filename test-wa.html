@@ -2,15 +2,18 @@
 <html lang="ko">
 	<head>
 	<meta charset="utf-8">
-	<title>Tab UI</title>
+	<title>wah test</title>
+	<style>
+		.uxi-tablist > .on{background:yellow;}
+	</style>
 </head>
 <body>
 	<h1>웹 접근성 ARIA 가이드</h1>
 	<section>
 		<h2>탭 리스트</h2>
-		<ul role="tablist">
+		<ul class="uxi-tablist" role="tablist">
 			<li role="presentation">
-				<a href="#section1" id="tab-id1" role="tab" aria-selected="true" aria-controls=“section1”>ㄱ</a>
+				<a href="#section1" id="tab-id1" role="tab" aria-selected="true" aria-controls=“section1” class="on">ㄱ</a>
 			</li>
 			<li role="presentation">
 				<a href="#section2" id="tab-id2" role="tab" aria-selected="false" aria-controls=“section2”>ㄴ</a>
