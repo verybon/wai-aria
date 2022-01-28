@@ -5,43 +5,40 @@
 	<title>Tab UI</title>
 </head>
 <body>
-	
+	<h1>웹 접근성 ARIA 가이드</h1>
 	<section>
-		<h1>웹 접근성 탭 리스트</h1>
+		<h2>탭 리스트</h2>
 		<ul role="tablist">
 			<li role="presentation">
-				<a href="#section1" id="tab-id1" role="tab" aria-selected="true" aria-controls=“section1”>ㄱ 탭</a>
+				<a href="#section1" id="tab-id1" role="tab" aria-selected="true" aria-controls=“section1”>ㄱ</a>
 			</li>
 			<li role="presentation">
-				<a href="#section2" id="tab-id2" role="tab" aria-selected="false" aria-controls=“section2”>ㄴ 탭</a>
+				<a href="#section2" id="tab-id2" role="tab" aria-selected="false" aria-controls=“section2”>ㄴ</a>
 			</li>
 			<li role="presentation">
-				<a href="#section3" id="tab-id3" role="tab" aria-selected="false" aria-controls=“section3”>ㄷ 탭</a>
+				<a href="#section3" id="tab-id3" role="tab" aria-selected="false" aria-controls=“section3”>ㄷ</a>
 			</li>
 		</ul>
 		<div id="section1" role=“tabpanel” aria-labelledby=“tab-id1”>
-			ㄱ 탭내용
+			ㄱ 내용
 		</div>
 		<div id="section2" role=“tabpanel” aria-labelledby=“tab-id2”>
-			ㄴ 탭내용
+			ㄴ 내용
 		</div>
 		<div id="section3" role=“tabpanel” aria-labelledby=“tab-id3”>
-			ㄷ 탭내용
+			ㄷ 내용
 		</div>
 	</section>
-	
-	
-	
-    <a href="#">new test 33g</a>
-    <div>테스트 텍스트</div>
-    <input type="radio" name="r1" id="r1_1" />
+		
+	<section>
+		<h2>라디오</h2>
+		<input type="radio" name="r1" id="r1_1" />
 		<label for="r1_1">테스트1</label>
-    <input type="radio" name="r1" id="r1_2" title="테스트2-2-2" aria-label="테스트2+2+2" />
-	<label for="r1_2">테스트2222</label>
-	<input type="radio" name="r1" id="r1_3" title="테스트444" aria-label="테스트333" />
-	<label for="r1_3">테스트555</label>
-	
-	<h2>
+    	<input type="radio" name="r1" id="r1_2" title="테스트2-2-2" aria-label="테스트2+2+2" />
+		<label for="r1_2">테스트2222</label>
+		<input type="radio" name="r1" id="r1_3" title="테스트444" aria-label="테스트333" />
+		<label for="r1_3">테스트555</label>
+	</section>
 	
 </body>
 </html>
